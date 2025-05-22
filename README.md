@@ -79,4 +79,74 @@ Translates model performance into financial value by comparing predictive accura
 
 ## IV. CONCLUSION AND RECOMMENDATION
 
+### **Conclusion**   
+
+1. **Model Performance and Selection**  
+    - **XGBoost** was selected as the best model after randomized search and cross-validation, with optimized parameters and strong error metrics (**MAE: ₩35.1M**, **MAPE: 17.5%**, **R²: 0.803**).  
+    - Delivered **36% - 47% lower errors** than traditional manual pricing, confirming superior predictive accuracy.  
+    - Prioritized **MAE and MAPE** for practical interpretability in real-world housing forecasts.  
+
+2. **Business Value and ROI**  
+    - Enables **data-driven pricing** using key features (e.g., size, hallway type, year built), replacing subjective estimates.  
+    - Built-in **pipeline ensures automated, scalable, and up-to-date predictions**, with alerts for mispricing risks.  
+    - Estimated **first-year benefit: ₩155B**, yielding over **5,500× ROI**, with ongoing ROI > **19,000×** due to low maintenance.  
+
+3. **Limitations**    
+    - Trained on **Daegu apartment data (1978–2015)**; retraining needed for new regions or market changes.  
+    - Predictions are most accurate within the **₩32M–₩586M** price range; extrapolation may reduce reliability.  
+    - Lacks **qualitative inputs** (e.g., renovations, school zones); ongoing monitoring and model updates are required.  
+    - Values may represent thousands of won rather than individual won; therefore, financial results should be interpreted carefully to avoid misjudgments.
+
+### **Recommendation**   
+
+1. **Expand Geographic and Temporal Coverage**
+    - Include data from other cities or national sources.  
+    - Apply transfer learning to adapt the model to new regions and market changes.  
+    - Monitor recent data regularly to detect temporal drift.
+
+2. **Incorporate Qualitative and External Data**
+    - Add features like school ratings, buyer sentiment, renovations, and policy updates.  
+    - Use GIS, census, and local government data to enhance model insights.
+
+3. **Implement Robust Monitoring and Maintenance**
+    - Automate drift detection with alerts for performance drops.  
+    - Schedule periodic retraining with new data and infrastructure changes.  
+    - Build CI pipelines for seamless model updates and deployment.
+
+4. **Enforce Unit-Scale Validation and Documentation**
+    - Standardize and document price unit scales within data pipelines.  
+    - Automate sanity checks to maintain consistent and accurate price interpretations.
+
 ---
+
+## REFERENCES
+
+- Bamboo Routes. (n.d.). *9 statistics for the Daegu real estate market in 2025*. Retrieved May 10, 2025, from https://bambooroutes.com/blogs/news/daegu-real-estate-market
+
+- Baroyeon Real Estate. (n.d.). *Why Tower Palace became a symbol of wealth*. Retrieved May 11, 2025, from https://m.baroyeon.co.kr/mLand/Land_View.baro?btype=Land1&mn=&sn=&cn=&page=1&id=1434
+
+- Chung, S.-h., & Kim, M. (2023). *Signs of real estate market recovery seen nationwide in Korea*. Pulse News. Retrieved May 10, 2025, from https://pulse.mk.co.kr/news/english/10817401
+
+- Kavlakoglu, E. (2024). *What is XGBoost?* IBM. Retrieved May 17, 2025, from https://www.ibm.com/think/topics/xgboost
+
+- Kim, S.-j. (2024). *Daegu private apartment average annual sales price ranks third nationwide*. Idaegu.com. Retrieved May 11, 2025, from https://www.idaegu.com/news/articleView.html?idxno=613186
+
+- Kurby Team. (2023). *The evolution of Daegu, South Korea’s real estate market over the last decade*. Kurby. Retrieved May 10, 2025, from https://blog.kurby.ai/the-evolution-of-daegu-south-koreas-real-estate-market-over-the-last-decade/
+
+- World Population Review. (2025). *Daegu population*. World Population Review. Retrieved May 10, 2025, from https://worldpopulationreview.com/cities/south-korea/daegu
+
+- Yoo, H. (2024). *Share of housing in Daegu, South Korea, in 2022 by type*. Statista. Retrieved May 10, 2025, from https://www.statista.com/statistics/1185119/south-korea-housing-types-daegu/
+
+- Yoo, H. (2025). *Housing transactions volume Daegu, South Korea 2009–2024*. Statista. Retrieved May 11, 2025, from https://www.statista.com/statistics/1076475/south-korea-daegu-housing-transactions-volume/
+
+---
+
+## TOOLS USED
+
+- **Python:** Main programming language for data cleaning, preprocessing, modeling, and evaluation.  
+- **Pandas and NumPy:** Data manipulation and numerical operations.  
+- **Scikit-learn:** Model benchmarking, hyperparameter tuning, and evaluation metrics.  
+- **XGBoost:** Gradient boosting implementation used as the final regression model.  
+- **Matplotlib and Seaborn:** Data visualization and diagnostic plots (residuals, feature importance).  
+- **SHAP:** Model interpretability and feature impact analysis.  
+- **Jupyter Notebook:** Interactive development and documentation environment.  
