@@ -32,10 +32,21 @@ This project evaluates the regression model using metrics focused on practical r
 ### **Scope and Limitations**  
 This project develops a machine learning model to estimate apartment prices in Daegu using structured transaction data from 1978 to 2015. Limitations include its focus on Daegu’s historical market without accounting for regional or future changes, reliance on quantitative features only (excluding qualitative factors like school quality or renovations), and a price range restricted to ₩32M–₩586M. Additionally, prices are modeled in won but may be scaled to thousands of won for interpretation, requiring consistency checks during analysis.
 
-
 ---
 
 ## II. DATA UNDERSTANDING AND PREPARATION
+Data preparation in this project includes data understanding, data cleaning, exploratory data analysis (EDA), and data preprocessing. The dataset contains 11 columns: 10 features and the sale price as the target variable, with each row representing a single apartment unit in Daegu, South Korea.
+
+The data cleaning process involves converting incorrect data types, handling missing values, removing duplicates, resolving inconsistencies, treating outliers, and renaming some feature names to ensure a clean and reliable dataset.
+
+During data preprocessing, the following steps were applied:
+1. Scaling (Robust Scaler): Applied to `NearbyGeneralFacilities`, `NearbyPublicOffices`, `NearbyUniversities`, `BasementParkingSpaces`, `InApartmentFacilities`, and `SizeSqft`.
+2. Encoding:
+    - One-hot encoding for `HallwayType` and `SubwayStation`.
+    - Ordinal encoding for `TimeToSubway`.
+3. Binning:
+    - `YearBuilt` categorized into very old, old, modern, and new.
+    - `SizeSqft` categorized into small, medium, large, and very large.
 
 ---
 
