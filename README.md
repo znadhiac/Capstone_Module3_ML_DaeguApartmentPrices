@@ -35,7 +35,7 @@ This project develops a machine learning model to estimate apartment prices in D
 ---
 
 ## II. DATA UNDERSTANDING AND PREPARATION
-Data preparation in this project includes data understanding, data cleaning, exploratory data analysis (EDA), and data preprocessing. The dataset contains 11 columns: 10 features and the sale price as the target variable, with each row representing a single apartment unit in Daegu, South Korea.
+Data understanding and preparation in this project includes data cleaning, exploratory data analysis (EDA), and data preprocessing. The dataset contains 11 columns: 10 features and the sale price as the target variable, with each row representing a single apartment unit in Daegu, South Korea.
 
 The data cleaning process involves converting incorrect data types, handling missing values, removing duplicates, resolving inconsistencies, treating outliers, and renaming some feature names to ensure a clean and reliable dataset.
 
