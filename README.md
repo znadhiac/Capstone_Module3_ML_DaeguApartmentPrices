@@ -40,17 +40,40 @@ Data preparation in this project includes data understanding, data cleaning, exp
 The data cleaning process involves converting incorrect data types, handling missing values, removing duplicates, resolving inconsistencies, treating outliers, and renaming some feature names to ensure a clean and reliable dataset.
 
 During data preprocessing, the following steps were applied:
-1. Scaling (Robust Scaler): Applied to `NearbyGeneralFacilities`, `NearbyPublicOffices`, `NearbyUniversities`, `BasementParkingSpaces`, `InApartmentFacilities`, and `SizeSqft`.
-2. Encoding:
+1. **Scaling (Robust Scaler):** Applied to `NearbyGeneralFacilities`, `NearbyPublicOffices`, `NearbyUniversities`, `BasementParkingSpaces`, `InApartmentFacilities`, and `SizeSqft`.
+2. **Encoding:**
     - One-hot encoding for `HallwayType` and `SubwayStation`.
     - Ordinal encoding for `TimeToSubway`.
-3. Binning:
+3. **Binning:**
     - `YearBuilt` categorized into very old, old, modern, and new.
     - `SizeSqft` categorized into small, medium, large, and very large.
 
 ---
 
 ## III. MODELING AND EVALUATION
+Modeling and evaluation focus on developing and refining a regression model to accurately predict apartment prices in Daegu. This chapter begins with benchmarking multiple models to establish baseline performance, followed by hyperparameter tuning and selecting the best-performing model. The final model is thoroughly evaluated using test data and key metrics. Additionally, diagnostics such as residual analysis and feature importance interpretation are conducted to ensure model reliability and transparency, along with assessing the business impact and cost-benefit of the pricing tool.
+
+### **1. Benchmark Model**  
+Benchmarking compares ten regression algorithms under identical preprocessing and evaluation settings to establish baseline performance for Daegu apartment price prediction. All models were integrated into a uniform pipeline with consistent scaling, encoding, and binning to ensure fair comparisons based solely on model characteristics. Each was trained on the training set and evaluated on the test set using key metrics: MAE, MAPE, MSE, RMSE, RMSLE, RMSPE, and R². The models range from linear (Multiple Linear, Lasso, Ridge) to non-parametric (KNN, Decision Tree) and ensemble methods (Bagging, Random Forest, Gradient Boosting, XGBoost, CatBoost), balancing interpretability, complexity, and non-linear modeling ability.
+
+### **2. Model Optimization and Selection**  
+Model Optimization and Selection involves tuning and evaluating regression models to enhance predictive accuracy. The process starts with hyperparameter tuning using randomized search with 5-fold cross-validation, optimizing parameters like n_neighbors, n_estimators, or max_depth to improve model generalization while avoiding overfitting. Linear models require minimal tuning, but complex models like ensembles benefit significantly.
+
+Following tuning, the best model is selected based on Mean Absolute Error (MAE) and Mean Absolute Percentage Error (MAPE), metrics chosen for their interpretability and practical value in real estate. MAE shows the average price error in the original unit (₩), while MAPE expresses errors as percentages, making performance easier to understand across varying price ranges.
+
+Finally, test set evaluation provides an unbiased measure of real-world performance using metrics like MAE, MAPE, RMSE, RMSLE, R², and RMSPE. Visual tools such as bar plots and scatter plots are used to interpret results and confirm the model's readiness for deployment.
+
+### **3. Model Diagnostics and Interpretation**  
+Model diagnostics ensure the final model is not only accurate but also reliable, interpretable, and ready for real-world deployment. This phase covers three essential components:
+
+1. **Residual Analysis**  
+Examines the differences between actual and predicted prices to detect issues like bias or non-linearity. Visual tools like distribution plots, Q-Q plots, and residuals vs. predicted plots help validate the model's consistency and spot areas for improvement.
+
+2. **Feature Importance**  
+Identifies the most influential features driving predictions, enhancing transparency and trust. XGBoost’s gain-based importance and SHAP values are used to rank features globally and explain individual predictions, supporting explainability and further refinement.
+
+3. **Business Impact**  
+Translates model performance into financial value by comparing predictive accuracy against traditional methods. Reductions in MAE, MAPE, and RMSE imply lower pricing risk, with scalable cost savings for apartment owners. Threshold-based alerts help detect mispriced units, while a cost-benefit assessment supports the model's practical adoption and ROI.
 
 ---
 
